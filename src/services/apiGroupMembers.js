@@ -10,7 +10,7 @@ export async function getAllMembers(group_id) {
 }
 
 export async function addMember(group_id, member_id) {
-    const res = await API.post(`/members/${group_id}/${member_id}/add_member`);
-    console.log(res);
+    await API.post(`/members/${group_id}/${member_id}/add_member`);
+    // console.log(res);
     
 }

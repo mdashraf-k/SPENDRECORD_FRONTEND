@@ -7,6 +7,6 @@ export async function groupExpense(group_id) {
 }
 
 export async function addExpence({group_id, payload}) {
-    const res = await API.post(`/spend/${group_id}/spend`, payload)
-    console.log(res);
+    await API.post(`/spend/${group_id}/spend`, payload)
+    // console.log(res);
 }
