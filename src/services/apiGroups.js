@@ -1,7 +1,7 @@
 import API from "../services/api";
 
 export async function getGroups() {
-  const res = await API.get("/groups");
+  const res = await API.get("/groups/");
   // console.log(res.data);
   return res.data;
 }

@@ -1,7 +1,7 @@
 import API from "./api";
 
 export async function getUserData() {
-    const res = await API.get("/user");
+    const res = await API.get("/user/");
     // console.log(res);
     if (res.status != 200) {
         throw new Error("Having trouble while getting your Data.");

@@ -15,7 +15,7 @@ function CreateGroup() {
   const navigate = useNavigate();
 
   function onSubmit(data) {
-    console.log(data);
+    // console.log(data);
     async function fetch() {
       const res = createGroup(data);
       console.log(res);
