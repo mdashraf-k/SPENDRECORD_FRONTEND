@@ -1,8 +1,9 @@
 import { FaArrowRight, FaLock } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../ui/Button";
 import { useForm } from "react-hook-form";
+import { signup } from "../services/apiAuth";
 
 function Register() {
   const {
@@ -11,9 +12,35 @@ function Register() {
     // eslint-disable-next-line no-unused-vars
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
+  let already_exist_data = [];
 
-  function onSubmit(data) {
-    console.log(data);
+  async function onSubmit(data) {
+    // console.log(data);
+    // 
+    try {
+      await signup(data);
+      navigate("/login");
+    } catch (error) {
+      // console.log(error);
+      if (error.response?.data?.detail) {
+        const errors = error.response.data.detail;
+
+        if (errors.email) {
+          console.log(errors.email);
+          already_exist_data.push(errors.email);
+        }
+
+        if (errors.username) {
+          console.log(errors.username);
+          already_exist_data.push(errors.username);
+        }
+        alert(already_exist_data);
+      } 
+      
+    }
+     
+    // login()
   }
 
   return (

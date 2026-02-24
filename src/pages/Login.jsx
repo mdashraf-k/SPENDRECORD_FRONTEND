@@ -1,19 +1,38 @@
 /* eslint-disable no-unused-vars */
 import { FaArrowRight, FaLock } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import Button from "../../ui/Button";
 import { useForm } from "react-hook-form";
+import { login } from "../services/apiAuth";
+import { useQueryClient } from "@tanstack/react-query";
+import { getUserData } from "../services/apiUser";
+import { useCurrentUser } from "../hooks/useCurrentUser";
 
 function Login() {
+  const queryClient = useQueryClient();
+  const naviagte = useNavigate();
+  const { data: user } = useCurrentUser();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  function onSubmit(data) {
-    console.log(data);
+  // if (user) return <Navigate to="/groups" replace />;
+  async function onSubmit(data) {
+    // console.log(data);
+    const res = await login(data);
+    if (res != 200) {
+      return "Invalid Details";
+    }
+    queryClient.clear();
+    await queryClient.prefetchQuery({
+      queryKey: ["profile"],
+      queryFn: getUserData,
+    });
+    naviagte("/groups");
   }
 
   return (
@@ -68,8 +87,9 @@ function Login() {
               </a>
             </div>
           </div>
-          <Button OnClick={handleSubmit(onSubmit)}> 
-              <FaArrowRight />Log In
+          <Button OnClick={handleSubmit(onSubmit)}>
+            <FaArrowRight />
+            Log In
           </Button>
         </form>
 

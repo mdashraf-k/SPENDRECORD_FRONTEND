@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../ui/Button";
 import { FaArrowLeft } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import { createGroup } from "../services/apiGroups.js";
 
 function CreateGroup() {
   const {
@@ -11,9 +12,19 @@ function CreateGroup() {
     formState: { errors },
   } = useForm();
 
+  const navigate = useNavigate();
+
   function onSubmit(data) {
     console.log(data);
+    async function fetch() {
+      const res = createGroup(data);
+      console.log(res);
+      
+    }
+    fetch();
+    navigate("/groups");
   }
+
   return (
     <div className="mt-6">
       <header className="flex items-center justify-between px-6 py-4">
@@ -28,12 +39,13 @@ function CreateGroup() {
       </h1>
       <div className="flex-1 overflow-y-auto px-6 pt-9 pb-32">
         <div className="flex justify-center mb-8">
-          <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center relative group">
+          <div className="w-24 h-24 rounded-full bg-white dark:bg-text-primary-light flex items-center justify-center relative group">
+
             <img
               alt="Group avatar"
-              className="w-full h-full rounded-full object-cover opacity-50"
+              className="w-full  h-full rounded-full object-cover opacity-50"
               data-alt="Abstract vibrant green and white geometric pattern"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi82cdWyGGJP1v7AoEeqZFLvkUUNH3xOLiC9tgw_dhscckE1mHBHcHAeJm03rK4naoijBlqxim6uU4TLQAq7V3A0r8JS3kuI08NsuAa88nOsnWvRUhc0zClyyzn7eZ480D7QL7Nbly6VP0hGkqj_SYOoh2s3PvgIG-upEFtuxNG4oe3k5wzGORLulKDYddXENqtUa5tuF1Zc7j4VwctoyVUCbtXpasL-UAqTrtdx-h20t1UD7dUpfrXmCYytY-ffb2a_h8IUKIToAn"
+              src="/public/people.png"
             />
           </div>
         </div>
@@ -43,7 +55,7 @@ function CreateGroup() {
               Group Name
             </label>
             <input
-              {...register("group_name", { required: true })}
+              {...register("name", { required: true })}
               className="w-full bg-slate-200 dark:bg-slate-800 border-none rounded-xl px-4 py-4 text-lg focus:ring-2 focus:ring-primary transition-all placeholder:text-slate-400 outline-none"
               placeholder="e.g. Groceries or Rent"
               type="text"
@@ -55,7 +67,7 @@ function CreateGroup() {
               Description
             </label>
             <input
-              {...register("descrition", { required: true })}
+              {...register("description", { required: true })}
               className="w-full bg-slate-200 dark:bg-slate-800  rounded-xl px-4 py-4 text-lg focus:ring-2 focus:ring-primary transition-all placeholder:text-slate-400 outline-none"
               placeholder="Write your Description!!"
               type="text"

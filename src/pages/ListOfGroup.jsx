@@ -1,63 +1,43 @@
 import GroupCard from "../../ui/GroupCard";
-import { useDarkMode } from "../hooks/useDarkMode";
 import { FaRupeeSign, FaMoon, FaSun   } from "react-icons/fa";
 import { IoRestaurant, IoPersonSharp } from "react-icons/io5";
-import { GiClothes, GiBookAura } from "react-icons/gi";
 import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Button from "../../ui/Button";
+// import { useEffect } from "react";
+import {getGroups} from "../services/apiGroups.js";
+import { useQuery } from "@tanstack/react-query";
 
 function GroupDetails() {
-  const [isDark, setIsDark] = useDarkMode();
+  const { data, isLoading, isError, error} = useQuery({
+    queryKey: ["groups"],
+    queryFn: getGroups,
+  })
+  // console.log(data);
+  
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>{error.message}</p>;
 
   return (
-    <div className="w-full mx-auto max-w-md bg-background-light dark:bg-background-dark min-h-screen relative flex flex-col shadow-2xl overflow-hidden">
-      <header className="px-6 pt-12 pb-4 flex justify-between items-center bg-card-light/80 dark:bg-card-dark/80 backdrop-blur-lg sticky top-0 z-20 border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
-        <div className="flex items-center gap-2">
-          <span className="text-xl font-bold tracking-tight">
-            Spend
-            <span className="text-indigo-600 dark:text-indigo-400">Record</span>
-          </span>
-        </div>
-        <div className="flex items-center space-x-3">
-          <Link
-            to="/donate"
-            
-          >
-            <Button type="round"><FaRupeeSign /></Button>
-            
-          </Link>
-          <Button type="round" OnClick={() => setIsDark(!isDark)}>{isDark ? <FaSun /> : <FaMoon />}</Button>
-      
-        </div>
-      </header>
+    <div className="w-full mx-auto max-w-md bg-background-light dark:bg-background-dark h-screen  flex flex-col shadow-2xl overflow-hidden">
+
       <main className="flex-1 overflow-y-auto px-5 py-6 space-y-4 no-scrollbar pb-24">
         <div className="flex justify-between items-baseline mb-2">
           <h2 className="text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
             Your Groups
           </h2>
         </div>
-        <Link to="/group_expenses">
+        {data.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).map(group => (
+          <Link key={group.id} to={`/group_expenses/${group.id}`}>
           <GroupCard
-            title="Food"
-            description="Shared meals &amp; groceries"
+            title={group.name}
+            description={group.description}
             Icon={IoRestaurant}
           />
         </Link>
-        <Link to="/group_expenses">
-          <GroupCard
-            title="Cloth"
-            description="Shopping &amp; Laundry"
-            Icon={GiClothes}
-          />
-        </Link>
-        <Link to="/group_expenses">
-          <GroupCard
-            title="Books"
-            description="Study materials &amp; stationary"
-            Icon={GiBookAura}
-          />
-        </Link>
+        ))}
+        
+        
       </main>
 
       <div className="absolute bottom-0 w-full p-6 bg-linear-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark pointer-events-none flex justify-between items-end pb-8">

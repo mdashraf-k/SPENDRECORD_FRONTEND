@@ -1,165 +1,263 @@
-<div
-  class="w-full max-w-md bg-background-light dark:bg-background-dark h-screen relative flex flex-col overflow-hidden shadow-2xl ring-1 ring-black/5 dark:ring-white/10"
->
-  <header
-    class="bg-surface-light dark:bg-surface-dark px-4 pt-12 pb-4 shadow-sm z-20 flex items-center justify-between border-b border-gray-200 dark:border-gray-700"
-  >
-    <button
-      class="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-500 dark:text-gray-400"
-    >
-      <span class="material-icons-round text-2xl">arrow_back_ios_new</span>
-    </button>
-    <div class="flex items-center space-x-2">
-      <div
-        class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400"
-      >
-        <span class="material-icons-round text-xl">restaurant</span>
-      </div>
-      <h1 class="text-xl font-bold tracking-tight">Food</h1>
-    </div>
-    <button
-      class="p-2 -mr-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-500 dark:text-gray-400"
-    >
-      <span class="material-icons-round text-2xl">more_vert</span>
-    </button>
-  </header>
-  <main
-    class="flex-1 overflow-y-auto no-scrollbar p-4 space-y-6 bg-background-light dark:bg-background-dark"
-  >
-    <div class="flex justify-center my-4">
-      <span
-        class="text-xs font-medium text-gray-400 dark:text-gray-500 bg-gray-200 dark:bg-gray-800 px-3 py-1 rounded-full"
-        >Today</span
-      >
-    </div>
-    <div class="flex flex-col space-y-1 items-start">
-      <div class="flex items-end space-x-2">
-        <div
-          class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xs font-bold shrink-0"
-        >
-          U1
-        </div>
-        <div
-          class="bg-surface-light dark:bg-surface-dark px-4 py-3 rounded-2xl rounded-bl-none shadow-sm border border-gray-100 dark:border-gray-700 max-w-[80%]"
-        >
-          <p class="text-sm font-medium text-gray-900 dark:text-white">
-            Grocery Run
-          </p>
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            Paid by Alex
-          </p>
-        </div>
-      </div>
-      <span class="text-[10px] text-gray-400 ml-10">$45.00 • 10:30 AM</span>
-    </div>
-    <div class="flex flex-col space-y-1 items-end">
-      <div class="flex items-end space-x-2 flex-row-reverse space-x-reverse">
-        <div
-          class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shrink-0"
-        >
-          Me
-        </div>
-        <div
-          class="bg-primary/10 dark:bg-primary/20 px-4 py-3 rounded-2xl rounded-br-none max-w-[80%]"
-        >
-          <p class="text-sm font-medium text-gray-900 dark:text-white">
-            Coffee Beans
-          </p>
-          <p class="text-xs text-primary dark:text-indigo-300 mt-1">
-            Paid by You
-          </p>
-        </div>
-      </div>
-      <span class="text-[10px] text-gray-400 mr-10">$12.50 • 11:15 AM</span>
-    </div>
-    <div class="flex flex-col space-y-1 items-start">
-      <div class="flex items-end space-x-2">
-        <div
-          class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 text-xs font-bold shrink-0"
-        >
-          U3
-        </div>
-        <div
-          class="bg-surface-light dark:bg-surface-dark px-4 py-3 rounded-2xl rounded-bl-none shadow-sm border border-gray-100 dark:border-gray-700 max-w-[80%]"
-        >
-          <p class="text-sm font-medium text-gray-900 dark:text-white">
-            Pizza Night
-          </p>
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            Paid by Sarah
-          </p>
-        </div>
-      </div>
-      <span class="text-[10px] text-gray-400 ml-10">$32.00 • 1:45 PM</span>
-    </div>
-    <div class="flex justify-center my-6">
-      <span class="text-xs text-gray-400 italic"
-        >User 2 settled up with User 1</span
-      >
-    </div>
-    <div class="flex flex-col space-y-1 items-start pb-24">
-      <div class="flex items-end space-x-2">
-        <div
-          class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xs font-bold shrink-0"
-        >
-          U1
-        </div>
-        <div
-          class="bg-surface-light dark:bg-surface-dark px-4 py-3 rounded-2xl rounded-bl-none shadow-sm border border-gray-100 dark:border-gray-700 max-w-[80%]"
-        >
-          <p class="text-sm font-medium text-gray-900 dark:text-white">
-            Milk &amp; Eggs
-          </p>
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            Paid by Alex
-          </p>
-        </div>
-      </div>
-      <span class="text-[10px] text-gray-400 ml-10">$8.20 • 4:20 PM</span>
-    </div>
-  </main>
-  <div
-    class="absolute bottom-0 left-0 w-full bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-700 pb-8 pt-4 px-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-30 rounded-t-3xl"
-  >
-    <div
-      class="mb-4 bg-gray-50 dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 flex justify-between items-center shadow-inner"
-    >
-      <div class="flex flex-col">
-        <span
-          class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold mb-1"
-          >Total Spend</span
-        >
-        <span class="text-xl font-bold text-gray-900 dark:text-white"
-          >$345.00</span
-        >
-      </div>
-      <div class="h-8 w-px bg-gray-300 dark:bg-gray-600 mx-2"></div>
-      <div class="flex flex-col items-end">
-        <span
-          class="text-xs uppercase tracking-wider text-primary font-semibold mb-1"
-          >Your Spend</span
-        >
-        <span class="text-xl font-bold text-primary">$112.50</span>
-      </div>
-    </div>
-    <div class="flex items-center gap-3">
-      <button
-        class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 p-3 rounded-full transition-colors shrink-0"
-      >
-        <span class="material-icons-round text-xl">add_a_photo</span>
-      </button>
-      <div class="relative flex-1">
-        <input
-          class="w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500 rounded-full py-3 pl-4 pr-12 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-gray-900 transition-all border-none"
-          placeholder="Type expense details..."
-          type="text"
-        />
+
+    <div class="max-w-md mx-auto min-h-screen flex flex-col relative">
+      <div class="h-12 w-full"></div>
+      <header class="px-4 py-2 flex items-center justify-between">
         <button
-          class="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-primary text-white rounded-full shadow-md hover:bg-indigo-600 transition-colors flex items-center justify-center"
+          class="p-2 -ml-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
         >
-          <span class="material-icons-round text-lg">arrow_upward</span>
+          <span class="material-icons-round block text-slate-400"
+            >arrow_back_ios_new</span
+          >
         </button>
+        <h1 class="text-lg font-semibold">Group Info</h1>
+        <div class="w-10"></div>
+      </header>
+      <main class="flex-1 ios-scroll overflow-y-auto px-6 pb-20">
+        <div class="flex flex-col items-center mt-6 text-center">
+          <div class="relative group">
+            <div
+              class="w-32 h-32 rounded-full ring-4 ring-slate-100 dark:ring-slate-800 overflow-hidden bg-slate-200 dark:bg-slate-700 flex items-center justify-center"
+            >
+              <img
+                alt="Roommates Group Photo"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuALR1O51PfdqpQgmFRr2obWsgW_LzsHl-hztC-lQ1DSiHveC92O3L1yenSdYYKUwWXxC56OOxOYmeLwD42RpE0mx6lLw4_6O2s9nI7YaZF-7EKiWEG0msjCFQh6y4a6jPvEQFWuY59HBJlLTu3x778iK2LWXwkj6Au0FfjGHlHKs0FPZZuQi1LoY6TAJ8tPOO8fZPU1vovWrModKCj59zuIchH43cMfyzGOzAYE7HWPZE30oUSZoQ0VSCuwuP60BHS00BtUozjeE7nv"
+              />
+            </div>
+            <button
+              class="absolute bottom-1 right-1 bg-primary text-white p-2 rounded-full shadow-lg border-4 border-background-light dark:border-background-dark"
+            >
+              <span class="material-icons-round text-sm block"
+                >photo_camera</span
+              >
+            </button>
+          </div>
+          <h2 class="mt-6 text-2xl font-bold tracking-tight">
+            The Beach House
+          </h2>
+          <p
+            class="mt-2 text-slate-500 dark:text-slate-400 max-w-xs text-sm leading-relaxed"
+          >
+            Shared expenses for our weekend getaway and weekly groceries.
+            Tracking all rent and utilities here.
+          </p>
+          <div class="flex items-center gap-4 mt-8">
+            <button
+              class="flex items-center gap-2 px-6 py-2.5 bg-primary text-white font-semibold rounded-full hover:opacity-90 active:scale-95 transition-all"
+            >
+              <span class="material-icons-round text-lg">person_add</span>
+              <span>Add</span>
+            </button>
+            <button
+              class="flex items-center gap-2 px-6 py-2.5 border border-slate-200 dark:border-slate-700 font-semibold rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 active:scale-95 transition-all"
+            >
+              <span class="material-icons-round text-lg">edit</span>
+              <span>Edit</span>
+            </button>
+          </div>
+        </div>
+        <div class="mt-12">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-bold tracking-tight">Group members</h3>
+            <span
+              class="text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-widest"
+              >4 Members</span
+            >
+          </div>
+          <div class="space-y-4 opacity-50">
+            <div
+              class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/50"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-700"
+                >
+                  <img
+                    alt="Alex Rivers avatar"
+                    class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdThhrERKmo7aVtUCmtpDESFaN3FdH1wYuHykiwP1YDDz2u5UZ3Dy8qvq8NAIWD6ZLtmYCw2Wb3iDMSMWg4wJ8CawSuPaOXnKRcdixmXePD-myu25IldM_xN8eBBtdpCcGUA8quAnz17-x2OIzamYmO-rnZMD4mTQRlvU71vguw1-hx4ItZX7QHXuoQArgsPI3d_xcx8cye-r5zqSVAJkrF8aOSxz5WEXLSkzC_VHVz4nCT3HTfQ9y-9ZFNtdPvq2SIKEsJdNkaVES"
+                  />
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-900 dark:text-slate-100">
+                    Alex Rivers
+                  </h4>
+                  <span
+                    class="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold uppercase tracking-wider"
+                    >Admin</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/50"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-700"
+                >
+                  <img
+                    alt="Sarah Chen avatar"
+                    class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLz_4whgkNYwLyPH-iFyR8SRubLA5E0VN_xaLvCknbPu-CXHI6qQ5HGYR4d-HKib0DGZwm2f0-8dP0W-cRk-3OXVvioZ8C04hFw0F6xFMWxPDhSkcY4EgB2m9y-5Sdh3z6ieww4zW3GIbx7mtmWIi_UW7Ct5a2zo6iQZT29WW8wcgRcbPfpZCgZvjx_O53eaiwe3oQhHas1xSo2EiR-9R7UFY_OAwWfFteX9w_pnKA-BW-2JN_s4rRYowTXJJVgdgfgBlQ5TyRPw8S"
+                  />
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-900 dark:text-slate-100">
+                    Sarah Chen
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="h-8 flex items-end justify-center pb-2">
+        <div class="w-32 h-1 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
+      </div>
+      <div class="absolute inset-0 z-50 flex items-center justify-center p-6">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div
+          class="relative w-full max-w-sm bg-background-light dark:bg-charcoal-modal rounded-[2rem] shadow-2xl border border-slate-100 dark:border-slate-700/50 overflow-hidden"
+        >
+          <div class="flex items-center justify-between px-6 pt-6 pb-4">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              Add Member
+            </h3>
+            <button
+              class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+            >
+              <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+          </div>
+          <div class="px-6 pb-4">
+            <div class="relative group">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors"
+                >search</span
+              >
+              <input
+                class="w-full bg-slate-50 dark:bg-slate-900/50 border-none rounded-2xl py-3 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-all shadow-inner"
+                placeholder="Search by name or email"
+                type="text"
+              />
+            </div>
+          </div>
+          <div class="px-6 pb-8">
+            <p
+              class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4 px-1"
+            >
+              Suggested Contacts
+            </p>
+            <div class="space-y-3">
+              <div
+                class="flex items-center justify-between p-2.5 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group cursor-pointer border border-transparent hover:border-slate-100 dark:hover:border-slate-700/30"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-transparent group-hover:border-primary/20"
+                  >
+                    <img
+                      alt="Emma Wilson"
+                      class="w-full h-full object-cover"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE2SUu6RLqOWDjkriw3-GzGCuPaCeyXWHsZysNRjB_xaHR2CGqJxpcQgiUgUhZPkZrikXCYtPwMs--6p_hcPEJ2jR2hfE3MYMGVOGx4hplTldD5VX-dEUrFTQqgfuxuNoUp9LEFPoDa6WUVSCMnxHvC0DDqGeF3Rf0s8othoHox-GkWaRWYTFUqdG89sGJi-uU7lgPCKc-EeEkapx4bClaHSVh8U8RHhvlsERzqasdMCV2uZrwjI7RqURH6eZfaT7wZnym1k7dmaUG"
+                    />
+                  </div>
+                  <div>
+                    <h4
+                      class="text-sm font-semibold text-slate-900 dark:text-slate-200"
+                    >
+                      Emma Wilson
+                    </h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                      emma.w@email.com
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all"
+                >
+                  <span class="material-symbols-outlined text-[18px] font-bold"
+                    >add</span
+                  >
+                </button>
+              </div>
+              <div
+                class="flex items-center justify-between p-2.5 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group cursor-pointer border border-transparent hover:border-slate-100 dark:hover:border-slate-700/30"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-transparent group-hover:border-primary/20"
+                  >
+                    <img
+                      alt="David Kim"
+                      class="w-full h-full object-cover"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuC23h_e1pa8tsIfAJFmiKLGdrdlUAFGzeBsqbrLYW7rhtCRAmyelwN0S49A6Om8h1it2T0opjWLAfrEn_2CARYE082M43MMJHJHjWb1uTdZYO3J4xsUm2eMg2t7KWequAGnv26xZ9uIyH_J1-8Zh-zQ9qZHgo4AF0fiUoYrUDC22n83j5gA7iPUcbVzuw7Sl6kxLTahLKzpX4dH_FzJSaIH8Rp0s4y4s_4LpcQNlO6RCQI_rTLGqwKPsRR5nxZBkIP53qfC5YPvrPg5"
+                    />
+                  </div>
+                  <div>
+                    <h4
+                      class="text-sm font-semibold text-slate-900 dark:text-slate-200"
+                    >
+                      David Kim
+                    </h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                      david.k@email.com
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all"
+                >
+                  <span class="material-symbols-outlined text-[18px] font-bold"
+                    >add</span
+                  >
+                </button>
+              </div>
+              <div
+                class="flex items-center justify-between p-2.5 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group cursor-pointer border border-transparent hover:border-slate-100 dark:hover:border-slate-700/30"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-transparent group-hover:border-primary/20"
+                  >
+                    <img
+                      alt="Luna Rodriguez"
+                      class="w-full h-full object-cover"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLz_4whgkNYwLyPH-iFyR8SRubLA5E0VN_xaLvCknbPu-CXHI6qQ5HGYR4d-HKib0DGZwm2f0-8dP0W-cRk-3OXVvioZ8C04hFw0F6xFMWxPDhSkcY4EgB2m9y-5Sdh3z6ieww4zW3GIbx7mtmWIi_UW7Ct5a2zo6iQZT29WW8wcgRcbPfpZCgZvjx_O53eaiwe3oQhHas1xSo2EiR-9R7UFY_OAwWfFteX9w_pnKA-BW-2JN_s4rRYowTXJJVgdgfgBlQ5TyRPw8S"
+                    />
+                  </div>
+                  <div>
+                    <h4
+                      class="text-sm font-semibold text-slate-900 dark:text-slate-200"
+                    >
+                      Luna Rodriguez
+                    </h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                      luna.r@email.com
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all"
+                >
+                  <span class="material-symbols-outlined text-[18px] font-bold"
+                    >add</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800"
+          >
+            <button
+              class="w-full py-3.5 bg-primary text-white font-bold rounded-2xl shadow-lg shadow-primary/20 active:scale-95 transition-all"
+            >
+              Done
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+

@@ -1,9 +1,10 @@
 import { useDarkMode } from "../hooks/useDarkMode";
 import { Link } from "react-router-dom";
 import Button from "../../ui/Button";
+import { FaRupeeSign } from "react-icons/fa";
 
 
-function Navbar() {
+function Navbar({button_detail, url}) {
   const [isDark, setIsDark] = useDarkMode();
 
   return (
@@ -27,7 +28,7 @@ function Navbar() {
       <div className="flex items-center gap-3">
         <Button type="round" OnClick={() => setIsDark(!isDark)}>{isDark ? "🌞" : "🌛"}</Button>
         <Link
-          to="/signup"
+          to={url}
           className="
           text-sm font-semibold
           text-indigo-600 dark:text-indigo-400
@@ -36,7 +37,7 @@ function Navbar() {
           transition-colors
         "
         >
-          Sign Up
+          {button_detail ? button_detail : <Button type="round"><FaRupeeSign /></Button>}
         </Link>
       </div>
     </nav>
