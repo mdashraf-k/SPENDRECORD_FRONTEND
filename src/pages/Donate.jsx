@@ -1,10 +1,9 @@
-
 import { FaHeart, FaCopy } from "react-icons/fa";
 import { IoIosCopy } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import qr from "../assets/qr.jpeg";
-import Button from "../../ui/Button";
+import Button from "../ui/Button";
 import { FaArrowLeft } from "react-icons/fa";
 
 function Donate() {

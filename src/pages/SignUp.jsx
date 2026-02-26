@@ -1,7 +1,7 @@
 import { FaArrowRight, FaLock } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "../../ui/Button";
+import Button from "../ui/Button";
 import { useForm } from "react-hook-form";
 import { signup } from "../services/apiAuth";
 
@@ -44,8 +44,7 @@ function Register() {
   }
 
   return (
-    <div>
-      <main className=" max-w-107.5 px-8 pt-10 pb-12 flex flex-col min-h-screen">
+      <main className="flex-1 px-8 pt-10 pb-12 flex flex-col">
         <Link to="/">
           <Button type="secondary">
             <FaArrowLeft />
@@ -137,7 +136,6 @@ function Register() {
           </p>
         </footer>
       </main>
-    </div>
   );
 }
 

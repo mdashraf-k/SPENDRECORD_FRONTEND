@@ -90,106 +90,100 @@ function GroupExpense() {
   if (isError || isExpenceError || isGroupError) console.log(error || expenceerror || groupError);
 
   return (
-    <div>
-      <div className="w-full max-w-md bg-background-light dark:bg-background-dark h-screen relative flex flex-col shadow-2xl ring-1 ring-black/5 dark:ring-white/10">
-        <header className="bg-surface-light dark:bg-surface-dark px-4 pt-12 pb-4 shadow-sm z-20 flex items-center justify-between border-b border-gray-200 dark:border-gray-700">
-          <Link
-            to="/groups"
-            className="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-500 dark:text-gray-400"
-          >
-            <span className=" text-2xl">
-              <FaArrowLeft />
-            </span>
-          </Link>
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400">
-              <span className="material-icons-round text-xl">
-                <IoRestaurant />
-              </span>
-            </div>
-            <h1 className="text-xl font-bold tracking-tight">{group.name}</h1>
+    <div className="fixed inset-0 z-40 flex flex-col bg-background-light dark:bg-background-dark max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto">
+      {/* Header - pinned at top */}
+      <header className="bg-surface-light dark:bg-surface-dark px-4 sm:px-6 md:px-8 pt-4 pb-2.5 shadow-sm z-20 flex items-center justify-between border-b border-gray-200 dark:border-gray-700 shrink-0">
+        <Link
+          to="/groups"
+          className="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-500 dark:text-gray-400"
+        >
+          <FaArrowLeft className="text-lg sm:text-xl md:text-2xl" />
+        </Link>
+        <div className="flex items-center space-x-2">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400">
+            <IoRestaurant className="text-base sm:text-lg md:text-xl" />
           </div>
-          <Link
-            to={`/group_details/${id}`}
-            className="p-2 -mr-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-500 dark:text-gray-400"
-          >
-            <span className=" text-2xl">
-              <SlOptionsVertical />
-            </span>
-          </Link>
-        </header>
-        <main className="flex-1 pb-63 md:pb-50 overflow-y-auto no-scrollbar space-y-6 bg-background-light dark:bg-background-dark">
-          <div className="flex justify-center my-4">
-            <span className="text-xs font-medium text-gray-400 dark:text-gray-500 bg-gray-200 dark:bg-gray-800 px-3 py-1 rounded-full">
-              Today
-            </span>
-          </div>
+          <h1 className="text-base sm:text-lg md:text-xl font-bold tracking-tight">{group.name}</h1>
+        </div>
+        <Link
+          to={`/group_details/${id}`}
+          className="p-2 -mr-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-500 dark:text-gray-400"
+        >
+          <SlOptionsVertical className="text-lg sm:text-xl md:text-2xl" />
+        </Link>
+      </header>
 
-          {expences.map((expence) => (
-            <ExpenseCard
-              user_type_style={user.id == expence.user.id ? "send" : "received"}
-              key={expence.id}
-              name={expence.user.name}
-              amount={expence.amount}
-              description={expence.description}
-              time={expence.created_at}
+      {/* Messages area - only this part scrolls, newest at bottom like WhatsApp */}
+      <main className="flex-1 overflow-y-auto no-scrollbar flex flex-col-reverse px-4 sm:px-6 md:px-8 py-4 space-y-6 space-y-reverse">
+        {[...expences].reverse().map((expence) => (
+          <ExpenseCard
+            user_type_style={user.id == expence.user.id ? "send" : "received"}
+            key={expence.id}
+            name={expence.user.name}
+            amount={expence.amount}
+            description={expence.description}
+            time={expence.created_at}
+          />
+        ))}
+        <div className="flex justify-center">
+          <span className="text-xs font-medium text-gray-400 dark:text-gray-500 bg-gray-200 dark:bg-gray-800 px-3 py-1 rounded-full">
+            Today
+          </span>
+        </div>
+      </main>
+
+      {/* Bottom summary + input - pinned at bottom */}
+      <div className="bg-gray-800 w-full dark:bg-surface-dark border-t pb-6 sm:pb-8 pt-3 sm:pt-4 px-3 sm:px-5 md:px-8 z-30 rounded-t-2xl sm:rounded-t-3xl shrink-0">
+        <div className="mb-3 sm:mb-4 bg-gray-50 dark:bg-gray-800 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-100 dark:border-gray-700 flex justify-between items-center shadow-inner">
+          <div className="flex flex-col">
+            <span className="text-[10px] sm:text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold mb-0.5 sm:mb-1">
+              Total Spend
+            </span>
+            <span className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white">
+              ₹{total}
+            </span>
+            <span className="text-[10px] sm:text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold mb-0.5 sm:mb-1">
+              Your Share
+            </span>
+            <span className="text-sm sm:text-base text-gray-900 dark:text-white">₹{perPersonshare.toFixed(2)}</span>
+          </div>
+          <div className="h-8 w-px bg-gray-300 dark:bg-gray-600 mx-1.5 sm:mx-2"></div>
+          <div className="flex flex-col items-end">
+            <span className="text-[10px] sm:text-xs uppercase tracking-wider text-primary font-semibold mb-0.5 sm:mb-1">
+              Your Spend
+            </span>
+            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">
+              ₹{UserTotal}
+            </span>
+            <span className="text-[10px] sm:text-xs uppercase tracking-wider text-primary font-semibold mb-0.5 sm:mb-1">
+              {leftBalanceAfterShare >= 0 ?"You get back" : "You owes"}
+            </span>
+            <span className="text-sm sm:text-base text-primary">
+              ₹{leftBalanceAfterShare.toFixed(2)}
+            </span>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="relative flex-1">
+            <input
+              {...register("amount", { required: true })}
+              className="w-1/2 bg-gray-100 dark:bg-gray-800 text-sm sm:text-base text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500 rounded-l-full border-r py-2.5 sm:py-3 pl-3 sm:pl-4 pr-4 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-gray-900 transition-all no-spinner"
+              placeholder="Amount"
+              type="number"
             />
-          ))}
-        </main>
-        <div className="fixed bottom-0 right-0   bg-gray-800 left-0 w-full dark:bg-surface-dark border-t  pb-8 pt-4 px-4 z-30 rounded-t-3xl">
-          <div className="mb-4 bg-gray-50 dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 flex justify-between items-center shadow-inner">
-            <div className="flex flex-col">
-              <span className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold mb-1">
-                Total Spend
-              </span>
-              <span className="text-xl font-bold text-gray-900 dark:text-white">
-                ₹{total}
-              </span>
-              <span className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold mb-1">
-                Your Share
-              </span>
-              <span className="text-gray-900 dark:text-white">₹{perPersonshare}</span>
-            </div>
-            <div className="h-8 w-px bg-gray-300 dark:bg-gray-600 mx-2"></div>
-            <div className="flex flex-col items-end">
-              <span className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">
-                Your Spend
-              </span>
-              <span className="text-xl font-bold text-primary">
-                ₹{UserTotal}
-              </span>
-              <span className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">
-                {leftBalanceAfterShare >= 0 ?"You get back" : "You owes"}
-              </span>
-              <span className=" text-primary">
-                ₹{leftBalanceAfterShare}
-              </span>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="relative flex-1">
-              <input
-                {...register("amount", { required: true })}
-                className="w-1/2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500 rounded-l-full border-r py-3 pl-4 pr-12 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-gray-900 transition-all"
-                placeholder="Amount"
-                type="number"
-              />
 
-              <input
-                {...register("description")}
-                className="w-1/2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500 rounded-r-full py-3 pl-4 pr-12 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-gray-900 transition-all border-none"
-                placeholder="Expense details.."
-                type="text"
-              />
-              <button
-                onClick={handleSubmit(handleAddExpence)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-primary text-white rounded-full shadow-md hover:bg-indigo-600 transition-colors flex items-center justify-center"
-              >
-                <span className=" text-lg">
-                  <FaArrowUp />
-                </span>
-              </button>
-            </div>
+            <input
+              {...register("description")}
+              className="w-1/2 bg-gray-100 dark:bg-gray-800 text-sm sm:text-base text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500 rounded-r-full py-2.5 sm:py-3 pl-3 sm:pl-4 pr-10 sm:pr-12 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-gray-900 transition-all border-none"
+              placeholder="Details.."
+              type="text"
+            />
+            <button
+              onClick={handleSubmit(handleAddExpence)}
+              className="absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 p-1 sm:p-1.5 bg-primary text-white rounded-full shadow-md hover:bg-indigo-600 transition-colors flex items-center justify-center"
+            >
+              <FaArrowUp className="text-sm sm:text-base md:text-lg" />
+            </button>
           </div>
         </div>
       </div>

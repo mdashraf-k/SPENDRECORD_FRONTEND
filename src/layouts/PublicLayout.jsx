@@ -5,7 +5,7 @@ function PublicLayout() {
   return (
     <div className="flex flex-col flex-1">
       <Navbar button_detail="Login" url="/login" />
-      <div className="flex-1">
+      <div className="flex-1 pt-16">
         <Outlet />
       </div>
     </div>

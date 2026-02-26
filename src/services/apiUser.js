@@ -19,7 +19,7 @@ export async function UpdateUserDetail(data) {
 
 export async function seachUser(query) {
     const res = await API.get(`/user/search?query=${query}`);
-    console.log(res.data);
+    // console.log(res.data);
     
     return res.data
 

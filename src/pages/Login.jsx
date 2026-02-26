@@ -2,7 +2,7 @@
 import { FaArrowRight, FaLock } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link, useNavigate, Navigate } from "react-router-dom";
-import Button from "../../ui/Button";
+import Button from "../ui/Button";
 import { useForm } from "react-hook-form";
 import { login } from "../services/apiAuth";
 import { useQueryClient } from "@tanstack/react-query";
@@ -36,8 +36,7 @@ function Login() {
   }
 
   return (
-    <>
-      <div className="flex-1 flex flex-col px-8 pt-10">
+    <main className="flex-1 flex flex-col px-8 pt-10 pb-12">
         <Link to="/">
           <Button type="secondary">
             <FaArrowLeft />
@@ -105,8 +104,7 @@ function Login() {
             </Link>
           </p>
         </div>
-      </div>
-    </>
+      </main>
   );
 }
 

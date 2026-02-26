@@ -8,7 +8,7 @@ function PrivateLayout() {
   return (
     <div className="flex flex-col flex-1">
       <Navbar url="/donate"/>
-      <div className="flex-1">
+      <div className="flex-1 pt-16">
         <Outlet/>
       </div>
     </div>

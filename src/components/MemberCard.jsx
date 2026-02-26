@@ -7,9 +7,9 @@ function MemberCard({ name, isAdmin, join_date }) {
       <div class="flex items-center gap-4">
         <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-700">
           <img
-            alt="Alex Rivers avatar"
+            alt="image"
             class="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdThhrERKmo7aVtUCmtpDESFaN3FdH1wYuHykiwP1YDDz2u5UZ3Dy8qvq8NAIWD6ZLtmYCw2Wb3iDMSMWg4wJ8CawSuPaOXnKRcdixmXePD-myu25IldM_xN8eBBtdpCcGUA8quAnz17-x2OIzamYmO-rnZMD4mTQRlvU71vguw1-hx4ItZX7QHXuoQArgsPI3d_xcx8cye-r5zqSVAJkrF8aOSxz5WEXLSkzC_VHVz4nCT3HTfQ9y-9ZFNtdPvq2SIKEsJdNkaVES"
+            src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png"
           />
         </div>
         <div>

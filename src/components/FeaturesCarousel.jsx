@@ -2,8 +2,15 @@ import FeatureCard from "./FeatureCard";
 
 function FeaturesCarousel() {
   return (
-    <div className="flex flex-col overflow-x-auto gap-6
-    ">
+    <div className="
+        flex gap-4
+        overflow-x-auto
+        no-scrollbar
+        snap-x snap-mandatory
+        pb-2
+        sm:grid sm:grid-cols-2 sm:overflow-visible
+        lg:grid-cols-3
+      ">
       <FeatureCard
         iconBg="bg-blue-100 dark:bg-blue-900/30"
         iconColor="text-blue-600 dark:text-blue-400"

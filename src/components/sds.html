@@ -1,263 +1,451 @@
-
-    <div class="max-w-md mx-auto min-h-screen flex flex-col relative">
-      <div class="h-12 w-full"></div>
-      <header class="px-4 py-2 flex items-center justify-between">
-        <button
-          class="p-2 -ml-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+<main>
+  <section class="relative overflow-hidden pt-12 pb-20 px-4">
+    <div
+      class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+    >
+      <div class="flex flex-col gap-8">
+        <div
+          class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1 w-fit"
         >
-          <span class="material-icons-round block text-slate-400"
-            >arrow_back_ios_new</span
+          <span
+            class="flex h-2 w-2 rounded-full bg-primary animate-pulse"
+          ></span>
+          <span class="text-xs font-bold uppercase tracking-wider text-primary"
+            >New: Automated Recurring Bills</span
           >
-        </button>
-        <h1 class="text-lg font-semibold">Group Info</h1>
-        <div class="w-10"></div>
-      </header>
-      <main class="flex-1 ios-scroll overflow-y-auto px-6 pb-20">
-        <div class="flex flex-col items-center mt-6 text-center">
-          <div class="relative group">
+        </div>
+        <div class="flex flex-col gap-4">
+          <h1
+            class="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white"
+          >
+            Split Expenses,
+            <span class="text-primary">Not Friendships</span>
+          </h1>
+          <p
+            class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed"
+          >
+            The premium way for modern roommates to track shared costs, settle
+            debts, and keep the harmony in the house.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button
+            class="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all shadow-xl shadow-primary/25"
+          >
+            <span class="material-symbols-outlined">ios</span>
+            Download Now
+          </button>
+          <button
+            class="flex items-center justify-center gap-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-white px-8 py-4 rounded-xl text-lg font-bold transition-all"
+          >
+            See how it works
+          </button>
+        </div>
+        <div class="flex items-center gap-4 pt-4">
+          <div class="flex -space-x-3">
             <div
-              class="w-32 h-32 rounded-full ring-4 ring-slate-100 dark:ring-slate-800 overflow-hidden bg-slate-200 dark:bg-slate-700 flex items-center justify-center"
+              class="h-10 w-10 rounded-full border-2 border-background-dark bg-slate-300 dark:bg-slate-700 overflow-hidden"
             >
               <img
-                alt="Roommates Group Photo"
-                class="w-full h-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuALR1O51PfdqpQgmFRr2obWsgW_LzsHl-hztC-lQ1DSiHveC92O3L1yenSdYYKUwWXxC56OOxOYmeLwD42RpE0mx6lLw4_6O2s9nI7YaZF-7EKiWEG0msjCFQh6y4a6jPvEQFWuY59HBJlLTu3x778iK2LWXwkj6Au0FfjGHlHKs0FPZZuQi1LoY6TAJ8tPOO8fZPU1vovWrModKCj59zuIchH43cMfyzGOzAYE7HWPZE30oUSZoQ0VSCuwuP60BHS00BtUozjeE7nv"
+                alt="User"
+                data-alt="Close up portrait of a smiling woman"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8QfAKenPxaZHFE7-rgx597K2pjVPoovf2B5mFWqAMbs1npqIbI9saYA7R-LRfpk8TZ1vSkEqWFCq-HmrHtns71RAvSeEKzLpyoT4GCKT6OzrEQ1o0jSjzHadEtPkZUJkLzx3sOTPNHT_Z3wqKsfnl1sZt808rxsnMR2lJ1_su89e6sYEW5DF86IWZxX9iS-w8kHB4l3O4BRvLrV5JXQPmF4PAVtOcAEPTARdn3fBZdtickJUwvBsHLOIZ4wZJ4n5jdKzG24Ae63CN"
               />
             </div>
-            <button
-              class="absolute bottom-1 right-1 bg-primary text-white p-2 rounded-full shadow-lg border-4 border-background-light dark:border-background-dark"
+            <div
+              class="h-10 w-10 rounded-full border-2 border-background-dark bg-slate-300 dark:bg-slate-700 overflow-hidden"
             >
-              <span class="material-icons-round text-sm block"
-                >photo_camera</span
-              >
-            </button>
+              <img
+                alt="User"
+                data-alt="Close up portrait of a smiling man"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJefQtmBBkqQ0ZXKqya45wQCPM4TPYqo7zUxhf6GPq7NItmJBA4IJNTuK_N0OgaSOZt5nft9TJ3iSAM0OeK7YLFWsAiAIhlQR4KeSTkrTYYbYS9cZps2iYHDvUPng0Xy7GXqqONB2izBDXoOghFJFJWHn75Dm_z_quguiAasoy1sQUDQCxbad8Crn5YnIikTnJ8w78Gr5OZ66XcOfNkxffC45F9gxVHp6RNGKZxnjp2CmbRgysysw6fCgvcnd42-cdtQaVa49NFStf"
+              />
+            </div>
+            <div
+              class="h-10 w-10 rounded-full border-2 border-background-dark bg-slate-300 dark:bg-slate-700 overflow-hidden"
+            >
+              <img
+                alt="User"
+                data-alt="Close up portrait of a woman with curly hair"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEC3M7uKXtA9fHC99AHmO3b88wx3MlrT0GELWBri-ebQzTtCUXT4rU2XznmJqySk31qnkQH_gNlXSIJcmOJWBYkXgr1r4qAMmnfMHOuAbwtGovOWhhyOo8rJyxlWmJphpfHgmkG3cPLigAXDJkScSRxHIZq6vrJ32isjsp_aX-9WwaYzbCRll5feJ1FrF_N619lw3N0qLPwZ6OZcbfahNLzeRAMmuYYHasaiu5uFi4BHVBJw2zef0A0Ku3h8F5X4pzUZJ7KJziPVN0"
+              />
+            </div>
           </div>
-          <h2 class="mt-6 text-2xl font-bold tracking-tight">
-            The Beach House
-          </h2>
-          <p
-            class="mt-2 text-slate-500 dark:text-slate-400 max-w-xs text-sm leading-relaxed"
-          >
-            Shared expenses for our weekend getaway and weekly groceries.
-            Tracking all rent and utilities here.
+          <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            Joined by
+            <span class="text-slate-900 dark:text-white font-bold"
+              >12k+ roommates</span
+            >
+            this month
           </p>
-          <div class="flex items-center gap-4 mt-8">
-            <button
-              class="flex items-center gap-2 px-6 py-2.5 bg-primary text-white font-semibold rounded-full hover:opacity-90 active:scale-95 transition-all"
-            >
-              <span class="material-icons-round text-lg">person_add</span>
-              <span>Add</span>
-            </button>
-            <button
-              class="flex items-center gap-2 px-6 py-2.5 border border-slate-200 dark:border-slate-700 font-semibold rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 active:scale-95 transition-all"
-            >
-              <span class="material-icons-round text-lg">edit</span>
-              <span>Edit</span>
-            </button>
-          </div>
         </div>
-        <div class="mt-12">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-bold tracking-tight">Group members</h3>
-            <span
-              class="text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-widest"
-              >4 Members</span
-            >
-          </div>
-          <div class="space-y-4 opacity-50">
-            <div
-              class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/50"
-            >
-              <div class="flex items-center gap-4">
-                <div
-                  class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-700"
-                >
-                  <img
-                    alt="Alex Rivers avatar"
-                    class="w-full h-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdThhrERKmo7aVtUCmtpDESFaN3FdH1wYuHykiwP1YDDz2u5UZ3Dy8qvq8NAIWD6ZLtmYCw2Wb3iDMSMWg4wJ8CawSuPaOXnKRcdixmXePD-myu25IldM_xN8eBBtdpCcGUA8quAnz17-x2OIzamYmO-rnZMD4mTQRlvU71vguw1-hx4ItZX7QHXuoQArgsPI3d_xcx8cye-r5zqSVAJkrF8aOSxz5WEXLSkzC_VHVz4nCT3HTfQ9y-9ZFNtdPvq2SIKEsJdNkaVES"
-                  />
-                </div>
-                <div>
-                  <h4 class="font-semibold text-slate-900 dark:text-slate-100">
-                    Alex Rivers
-                  </h4>
-                  <span
-                    class="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold uppercase tracking-wider"
-                    >Admin</span
-                  >
-                </div>
-              </div>
-            </div>
-            <div
-              class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/50"
-            >
-              <div class="flex items-center gap-4">
-                <div
-                  class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-700"
-                >
-                  <img
-                    alt="Sarah Chen avatar"
-                    class="w-full h-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLz_4whgkNYwLyPH-iFyR8SRubLA5E0VN_xaLvCknbPu-CXHI6qQ5HGYR4d-HKib0DGZwm2f0-8dP0W-cRk-3OXVvioZ8C04hFw0F6xFMWxPDhSkcY4EgB2m9y-5Sdh3z6ieww4zW3GIbx7mtmWIi_UW7Ct5a2zo6iQZT29WW8wcgRcbPfpZCgZvjx_O53eaiwe3oQhHas1xSo2EiR-9R7UFY_OAwWfFteX9w_pnKA-BW-2JN_s4rRYowTXJJVgdgfgBlQ5TyRPw8S"
-                  />
-                </div>
-                <div>
-                  <h4 class="font-semibold text-slate-900 dark:text-slate-100">
-                    Sarah Chen
-                  </h4>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-      <div class="h-8 flex items-end justify-center pb-2">
-        <div class="w-32 h-1 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
       </div>
-      <div class="absolute inset-0 z-50 flex items-center justify-center p-6">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+      <div
+        class="relative w-full aspect-square md:aspect-video lg:aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-primary/20 to-slate-800/50 border border-white/5 shadow-2xl"
+      >
         <div
-          class="relative w-full max-w-sm bg-background-light dark:bg-charcoal-modal rounded-[2rem] shadow-2xl border border-slate-100 dark:border-slate-700/50 overflow-hidden"
-        >
-          <div class="flex items-center justify-between px-6 pt-6 pb-4">
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
-              Add Member
-            </h3>
-            <button
-              class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-            >
-              <span class="material-symbols-outlined text-[20px]">close</span>
-            </button>
-          </div>
-          <div class="px-6 pb-4">
-            <div class="relative group">
-              <span
-                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors"
-                >search</span
-              >
-              <input
-                class="w-full bg-slate-50 dark:bg-slate-900/50 border-none rounded-2xl py-3 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-all shadow-inner"
-                placeholder="Search by name or email"
-                type="text"
-              />
-            </div>
-          </div>
-          <div class="px-6 pb-8">
-            <p
-              class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4 px-1"
-            >
-              Suggested Contacts
-            </p>
-            <div class="space-y-3">
-              <div
-                class="flex items-center justify-between p-2.5 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group cursor-pointer border border-transparent hover:border-slate-100 dark:hover:border-slate-700/30"
-              >
-                <div class="flex items-center gap-3">
-                  <div
-                    class="w-10 h-10 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-transparent group-hover:border-primary/20"
-                  >
-                    <img
-                      alt="Emma Wilson"
-                      class="w-full h-full object-cover"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE2SUu6RLqOWDjkriw3-GzGCuPaCeyXWHsZysNRjB_xaHR2CGqJxpcQgiUgUhZPkZrikXCYtPwMs--6p_hcPEJ2jR2hfE3MYMGVOGx4hplTldD5VX-dEUrFTQqgfuxuNoUp9LEFPoDa6WUVSCMnxHvC0DDqGeF3Rf0s8othoHox-GkWaRWYTFUqdG89sGJi-uU7lgPCKc-EeEkapx4bClaHSVh8U8RHhvlsERzqasdMCV2uZrwjI7RqURH6eZfaT7wZnym1k7dmaUG"
-                    />
-                  </div>
-                  <div>
-                    <h4
-                      class="text-sm font-semibold text-slate-900 dark:text-slate-200"
-                    >
-                      Emma Wilson
-                    </h4>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400">
-                      emma.w@email.com
-                    </p>
-                  </div>
-                </div>
-                <button
-                  class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all"
-                >
-                  <span class="material-symbols-outlined text-[18px] font-bold"
-                    >add</span
-                  >
-                </button>
-              </div>
-              <div
-                class="flex items-center justify-between p-2.5 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group cursor-pointer border border-transparent hover:border-slate-100 dark:hover:border-slate-700/30"
-              >
-                <div class="flex items-center gap-3">
-                  <div
-                    class="w-10 h-10 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-transparent group-hover:border-primary/20"
-                  >
-                    <img
-                      alt="David Kim"
-                      class="w-full h-full object-cover"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuC23h_e1pa8tsIfAJFmiKLGdrdlUAFGzeBsqbrLYW7rhtCRAmyelwN0S49A6Om8h1it2T0opjWLAfrEn_2CARYE082M43MMJHJHjWb1uTdZYO3J4xsUm2eMg2t7KWequAGnv26xZ9uIyH_J1-8Zh-zQ9qZHgo4AF0fiUoYrUDC22n83j5gA7iPUcbVzuw7Sl6kxLTahLKzpX4dH_FzJSaIH8Rp0s4y4s_4LpcQNlO6RCQI_rTLGqwKPsRR5nxZBkIP53qfC5YPvrPg5"
-                    />
-                  </div>
-                  <div>
-                    <h4
-                      class="text-sm font-semibold text-slate-900 dark:text-slate-200"
-                    >
-                      David Kim
-                    </h4>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400">
-                      david.k@email.com
-                    </p>
-                  </div>
-                </div>
-                <button
-                  class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all"
-                >
-                  <span class="material-symbols-outlined text-[18px] font-bold"
-                    >add</span
-                  >
-                </button>
-              </div>
-              <div
-                class="flex items-center justify-between p-2.5 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group cursor-pointer border border-transparent hover:border-slate-100 dark:hover:border-slate-700/30"
-              >
-                <div class="flex items-center gap-3">
-                  <div
-                    class="w-10 h-10 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-transparent group-hover:border-primary/20"
-                  >
-                    <img
-                      alt="Luna Rodriguez"
-                      class="w-full h-full object-cover"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLz_4whgkNYwLyPH-iFyR8SRubLA5E0VN_xaLvCknbPu-CXHI6qQ5HGYR4d-HKib0DGZwm2f0-8dP0W-cRk-3OXVvioZ8C04hFw0F6xFMWxPDhSkcY4EgB2m9y-5Sdh3z6ieww4zW3GIbx7mtmWIi_UW7Ct5a2zo6iQZT29WW8wcgRcbPfpZCgZvjx_O53eaiwe3oQhHas1xSo2EiR-9R7UFY_OAwWfFteX9w_pnKA-BW-2JN_s4rRYowTXJJVgdgfgBlQ5TyRPw8S"
-                    />
-                  </div>
-                  <div>
-                    <h4
-                      class="text-sm font-semibold text-slate-900 dark:text-slate-200"
-                    >
-                      Luna Rodriguez
-                    </h4>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400">
-                      luna.r@email.com
-                    </p>
-                  </div>
-                </div>
-                <button
-                  class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all"
-                >
-                  <span class="material-symbols-outlined text-[18px] font-bold"
-                    >add</span
-                  >
-                </button>
-              </div>
-            </div>
-          </div>
+          class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&amp;w=800&amp;auto=format&amp;fit=crop')] bg-cover bg-center mix-blend-overlay opacity-40"
+          data-alt="Abstract 3D illustration of coins and technology floating"
+        ></div>
+        <div class="relative h-full flex items-center justify-center p-8">
+          
           <div
-            class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800"
+            class="w-2/3 h-5/6 bg-slate-900/80 rounded-[3rem] border-[8px] border-slate-800 shadow-2xl p-4 backdrop-blur-sm relative overflow-hidden"
           >
-            <button
-              class="w-full py-3.5 bg-primary text-white font-bold rounded-2xl shadow-lg shadow-primary/20 active:scale-95 transition-all"
+            <div
+              class="w-full h-full bg-slate-900 rounded-[2rem] flex flex-col p-4 gap-4 overflow-hidden"
             >
-              Done
-            </button>
+              <div class="flex justify-between items-center mb-4">
+                <span class="material-symbols-outlined text-primary">menu</span>
+                <span class="h-6 w-6 rounded-full bg-slate-700"></span>
+              </div>
+              <div
+                class="h-24 w-full bg-primary/20 rounded-2xl flex items-center px-4 gap-4"
+              >
+                <div
+                  class="h-12 w-12 rounded-full bg-primary flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-white"
+                    >payments</span
+                  >
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[10px] text-slate-400">Total Spent</span>
+                  <span class="text-xl font-black text-white">$1,240.50</span>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div
+                  class="h-12 w-full bg-slate-800/50 rounded-xl flex items-center px-3 justify-between"
+                >
+                  <div class="flex items-center gap-2">
+                    <div
+                      class="h-8 w-8 rounded-lg bg-orange-500/20 flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-orange-500 text-sm"
+                        >restaurant</span
+                      >
+                    </div>
+                    <span class="text-xs text-slate-300">Grocery Run</span>
+                  </div>
+                  <span class="text-xs font-bold text-white">-$84.00</span>
+                </div>
+                <div
+                  class="h-12 w-full bg-slate-800/50 rounded-xl flex items-center px-3 justify-between"
+                >
+                  <div class="flex items-center gap-2">
+                    <div
+                      class="h-8 w-8 rounded-lg bg-blue-500/20 flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-blue-500 text-sm"
+                        >bolt</span
+                      >
+                    </div>
+                    <span class="text-xs text-slate-300">Electricity Bill</span>
+                  </div>
+                  <span class="text-xs font-bold text-white">-$120.00</span>
+                </div>
+                <div
+                  class="h-12 w-full bg-slate-800/50 rounded-xl flex items-center px-3 justify-between"
+                >
+                  <div class="flex items-center gap-2">
+                    <div
+                      class="h-8 w-8 rounded-lg bg-purple-500/20 flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-purple-500 text-sm"
+                        >wifi</span
+                      >
+                    </div>
+                    <span class="text-xs text-slate-300">Internet Split</span>
+                  </div>
+                  <span class="text-xs font-bold text-white">-$45.00</span>
+                </div>
+              </div>
+              <div
+                class="mt-auto h-12 w-full bg-primary rounded-xl flex items-center justify-center"
+              >
+                <span class="text-white font-bold text-xs">Settle Up Now</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
+  
+  <section class="py-24 px-4 bg-slate-100 dark:bg-slate-900/40">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 space-y-4">
+        <h2 class="text-primary font-bold tracking-widest text-sm uppercase">
+          Powerful Features
+        </h2>
+        <h3
+          class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white"
+        >
+          Designed for Household Harmony
+        </h3>
+        <p
+          class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed"
+        >
+          Say goodbye to awkward conversations about money and hello to seamless
+          expense management.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div
+          class="group p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/5"
+        >
+          <div
+            class="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-3xl">schedule</span>
+          </div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+            Real-time Tracking
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            See every expense as it happens. Instant sync across all devices
+            means everyone is always on the same page.
+          </p>
+        </div>
+        
+        <div
+          class="group p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/5"
+        >
+          <div
+            class="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-3xl">groups</span>
+          </div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+            Group Management
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Easily organize multiple roommate groups, shared living spaces, or
+            even split vacation costs with friends.
+          </p>
+        </div>
+        
+        <div
+          class="group p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/5"
+        >
+          <div
+            class="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-3xl">description</span>
+          </div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+            Settlement Reports
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Generate professional monthly reports and settle debts fairly with
+            one click via integrated payment providers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-24 px-4 overflow-hidden relative">
+    <div
+      class="max-w-7xl mx-auto bg-primary rounded-[3rem] p-12 md:p-20 flex flex-col items-center text-center relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-primary/40 mix-blend-overlay opacity-30"
+      ></div>
+      <div class="relative z-10 space-y-8 max-w-3xl">
+        <h2 class="text-4xl md:text-6xl font-black text-white leading-tight">
+          Ready to start tracking?
+        </h2>
+        <p class="text-white/80 text-lg md:text-xl font-medium">
+          Join thousands of roommates using SpendRecord to manage their homes
+          better and stay friends for longer.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-primary px-8 py-4 rounded-xl text-lg font-bold hover:bg-slate-100 transition-colors shadow-xl shadow-black/10"
+          >
+            Get Started for Free
+          </button>
+          <button
+            class="bg-primary-dark/20 border-2 border-white/30 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/10 transition-colors"
+          >
+            Speak to Support
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
+<footer
+  class="bg-slate-100 dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 py-16 px-4"
+>
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+      
+      <div class="col-span-2 lg:col-span-2 space-y-6">
+        <div class="flex items-center gap-2">
+          <div class="bg-primary p-1 rounded-lg text-white">
+            <span class="material-symbols-outlined text-xl"
+              >account_balance_wallet</span
+            >
+          </div>
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white">
+            SpendRecord
+          </h2>
+        </div>
+        <p
+          class="text-slate-500 dark:text-slate-400 max-w-xs text-sm leading-relaxed"
+        >
+          SpendRecord is the world's most trusted expense splitting app for
+          households and friends. Built for transparency and fairness.
+        </p>
+        <div class="flex items-center gap-4">
+          <a
+            class="h-10 w-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+            href="#"
+          >
+            <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            class="h-10 w-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+            href="#"
+          >
+            <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div>
+        <h5
+          class="text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white mb-6"
+        >
+          Product
+        </h5>
+        <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+          <li>
+            <a class="hover:text-primary transition-colors" href="#"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-primary transition-colors" href="#">Pricing</a>
+          </li>
+          <li>
+            <a class="hover:text-primary transition-colors" href="#"
+              >Security</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-primary transition-colors" href="#"
+              >Enterprise</a
+            >
+          </li>
+        </ul>
+      </div>
+      
+      <div>
+        <h5
+          class="text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white mb-6"
+        >
+          Company
+        </h5>
+        <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+          <li>
+            <a class="hover:text-primary transition-colors" href="#"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-primary transition-colors" href="#">Careers</a>
+          </li>
+          <li>
+            <a class="hover:text-primary transition-colors" href="#">Blog</a>
+          </li>
+          <li>
+            <a class="hover:text-primary transition-colors" href="#">Press</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div>
+        <h5
+          class="text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white mb-6"
+        >
+          Support
+        </h5>
+        <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400 mb-8">
+          <li>
+            <a class="hover:text-primary transition-colors" href="#"
+              >Help Center</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-primary transition-colors" href="#"
+              >Contact Us</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-primary transition-colors" href="#"
+              >Community</a
+            >
+          </li>
+        </ul>
+        <h5
+          class="text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white mb-6"
+        >
+          Legal
+        </h5>
+        <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+          <li>
+            <a class="hover:text-primary transition-colors" href="#"
+              >Privacy Policy</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-primary transition-colors" href="#"
+              >Terms of Service</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4"
+    >
+      <p class="text-xs text-slate-500 dark:text-slate-400">
+        © 2024 SpendRecord Inc. All rights reserved.
+      </p>
+      <div class="flex gap-6">
+        <a
+          class="text-xs text-slate-500 dark:text-slate-400 hover:text-primary"
+          href="#"
+          >Status</a
+        >
+        <a
+          class="text-xs text-slate-500 dark:text-slate-400 hover:text-primary"
+          href="#"
+          >Cookies</a
+        >
+        <a
+          class="text-xs text-slate-500 dark:text-slate-400 hover:text-primary"
+          href="#"
+          >Sitemap</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>
