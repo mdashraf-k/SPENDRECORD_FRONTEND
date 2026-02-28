@@ -7,15 +7,16 @@ import Button from "../ui/Button.jsx";
 // import { useEffect } from "react";
 import { getGroups } from "../services/apiGroups.js";
 import { useQuery } from "@tanstack/react-query";
+import Loading from "../components/Loading.jsx";
 
 function GroupDetails() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["groups"],
     queryFn: getGroups,
   });
-  // console.log(data);
+  
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading/>;
   if (isError) return <p>{error.message}</p>;
 
   return (

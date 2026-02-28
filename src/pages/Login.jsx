@@ -4,10 +4,11 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import Button from "../ui/Button";
 import { useForm } from "react-hook-form";
-import { login } from "../services/apiAuth";
+import { login, loginGoogle } from "../services/apiAuth";
 import { useQueryClient } from "@tanstack/react-query";
 import { getUserData } from "../services/apiUser";
 import { useCurrentUser } from "../hooks/useCurrentUser";
+import { GoogleLogin } from "@react-oauth/google";
 
 function Login() {
   const queryClient = useQueryClient();
@@ -35,76 +36,107 @@ function Login() {
     naviagte("/groups");
   }
 
+  async function handleGoogleLogin(token) {
+    console.log(token);
+
+    await loginGoogle(token);
+    naviagte("/groups");
+  }
+
   return (
-    <main className="flex-1 flex flex-col px-8 pt-10 pb-12">
-        <Link to="/">
-          <Button type="secondary">
-            <FaArrowLeft />
-          </Button>
-        </Link>
-        <div className="flex flex-col items-center mt-12 mb-10">
-          <h1 className="text-3xl font-bold tracking-tight mb-2">Login</h1>
-          <p className="text-slate-500 dark:text-primary/60 text-center font-medium">
-            Shared living, simplified spending.
-          </p>
+    <main className="flex-1 flex flex-col pt-6 pb-10">
+      <Link to="/">
+        <Button type="secondary">
+          <FaArrowLeft />
+        </Button>
+      </Link>
+      <div className="flex flex-col items-center mt-3 mb-8">
+        <h1 className="text-3xl font-bold tracking-tight mb-2">Login</h1>
+        <p className="text-slate-500 dark:text-primary/60 text-center font-medium">
+          Shared living, simplified spending.
+        </p>
+      </div>
+
+      <form>
+        <div className="pb-8">
+          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 px-1">
+            Username or Email
+          </label>
+
+          <input
+            {...register("identifier", { required: true })}
+            className="w-full bg-slate-200 dark:bg-slate-800  rounded-xl px-4 py-4 text-lg focus:ring-2 focus:ring-primary transition-all placeholder:text-slate-400 outline-none"
+            placeholder="e.g., alex@home.com"
+            type="text"
+          />
         </div>
-
-        <form>
-          <div className="pb-10">
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 px-1">
-              Username or Email
-            </label>
-
+        <div className="pb-8">
+          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 px-1">
+            Password
+          </label>
+          <div className="relative">
             <input
-              {...register("identifier", { required: true })}
+              {...register("password", { required: true })}
               className="w-full bg-slate-200 dark:bg-slate-800  rounded-xl px-4 py-4 text-lg focus:ring-2 focus:ring-primary transition-all placeholder:text-slate-400 outline-none"
-              placeholder="e.g., alex@home.com"
-              type="text"
+              placeholder="••••••••"
+              type="password"
             />
+            <span className="material-icons absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl cursor-pointer">
+              <FaLock />
+            </span>
           </div>
-          <div className="pb-10">
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 px-1">
-              Password
-            </label>
-            <div className="relative">
-              <input
-                {...register("password", { required: true })}
-                className="w-full bg-slate-200 dark:bg-slate-800  rounded-xl px-4 py-4 text-lg focus:ring-2 focus:ring-primary transition-all placeholder:text-slate-400 outline-none"
-                placeholder="••••••••"
-                type="password"
-              />
-              <span className="material-icons absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl cursor-pointer">
-                <FaLock />
-              </span>
-            </div>
-            <div className="flex justify-end mt-3">
-              <a
-                className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-                href="#"
-              >
-                Forgot Password?
-              </a>
-            </div>
-          </div>
-          <Button OnClick={handleSubmit(onSubmit)}>
-            <FaArrowRight />
-            Log In
-          </Button>
-        </form>
-
-        <div className="mt-auto pb-10 text-center">
-          <p className="text-slate-600 dark:text-slate-400 text-sm">
-            Don't have an account?
-            <Link
-              to="/signup"
-              className="text-primary font-bold ml-1 hover:underline"
+          <div className="flex justify-end mt-3">
+            <a
+              className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
               href="#"
             >
-              Sign Up
-            </Link>
-          </p>
+              Forgot Password?
+            </a>
+          </div>
         </div>
-      </main>
+        <Button OnClick={handleSubmit(onSubmit)}>
+          <FaArrowRight />
+          Log In
+        </Button>
+      </form>
+
+      <div className="mt-auto pb-4 text-center">
+        <p className="text-slate-600 dark:text-slate-400 text-sm">
+          Don't have an account?
+          <Link
+            to="/signup"
+            className="text-primary font-bold ml-1 hover:underline"
+            href="#"
+          >
+            Sign Up
+          </Link>
+        </p>
+      </div>
+      <div className="flex items-center py-4">
+        <div className="grow border-t border-slate-800 dark:border-slate-800"></div>
+        <span className="shrink mx-4 text-xs font-bold text-slate-400 dark:text-slate-600 uppercase tracking-widest">
+          Or Continue With
+        </span>
+        <div className="grow border-t border-slate-800 dark:border-slate-800"></div>
+      </div>
+      <div className="w-full justify-center flex">
+        <GoogleLogin
+        theme="outline"
+        size="large"
+        shape="pill"
+        text="continue_with"
+        width="200"
+        onSuccess={(credentialResponse) => {
+          handleGoogleLogin(credentialResponse.credential);
+        }}
+        onError={() => {
+          console.log("Login Failed");
+        }}
+      />
+      </div>
+      
+      
+    </main>
   );
 }
 

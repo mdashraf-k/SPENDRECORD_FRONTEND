@@ -17,9 +17,7 @@ function CreateGroup() {
   function onSubmit(data) {
     // console.log(data);
     async function fetch() {
-      const res = createGroup(data);
-      console.log(res);
-      
+      createGroup(data);
     }
     fetch();
     navigate("/groups");

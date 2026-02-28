@@ -11,7 +11,8 @@ export async function createGroup({ name, description }) {
     name,
     description,
   });
-  if (!res.ok) {
+  
+  if (res.status != 200) {
     throw new Error("Failed to create groups");
   }
 

@@ -1,20 +1,23 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
-import "./index.css"
-import App from './App.jsx'
-import { registerSW } from 'virtual:pwa-register'
+import "./index.css";
+import App from "./App.jsx";
+import { registerSW } from "virtual:pwa-register";
 
 const updateSW = registerSW({
   onNeedRefresh() {
-    if (confirm('New content available. Reload?')) {
-      updateSW(true)
+    if (confirm("New content available. Reload?")) {
+      updateSW(true);
     }
   },
-})
+});
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-  </StrictMode>
-)
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      <App />
+    </GoogleOAuthProvider>
+  </StrictMode>,
+);

@@ -14,9 +14,7 @@ function Navbar({ button_detail, url }) {
       flex items-center justify-between
       px-4 sm:px-6 md:px-8 py-2.5
       bg-white/80 dark:bg-slate-900/80
-      backdrop-blur-md
-      border-b border-slate-200 dark:border-slate-800
-    "
+      backdrop-blur-md border-b border-slate-200 dark:border-slate-800 w-full"
     >
       <Link to="/">
         <div className="flex items-center gap-2">

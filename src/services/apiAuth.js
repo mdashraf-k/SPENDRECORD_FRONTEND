@@ -5,24 +5,28 @@ export async function login({ identifier, password }) {
     identifier,
     password,
   });
-//   console.log(data.status);
-  
+  //   console.log(data.status);
+
   return data.status;
 }
 
-export async function logout() {
-  const res = await API.post("/auth/logout", {credentials: "include"});
+export async function loginGoogle(token) {
+  await API.post("/auth/google", { token });
   // console.log(res);
-  return res;
-  
 }
 
-export async function signup({name,email, username, password}) {
+export async function logout() {
+  const res = await API.post("/auth/logout", { credentials: "include" });
+  // console.log(res);
+  return res;
+}
+
+export async function signup({ name, email, username, password }) {
   await API.post("/auth/signup", {
     name,
     email,
     username,
     password,
-  })
+  });
   // console.log(res);
 }

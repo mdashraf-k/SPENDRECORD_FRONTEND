@@ -1,5 +1,6 @@
 import { IoCloseSharp } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
+import { MdFileDownloadDone } from "react-icons/md";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { seachUser } from "../services/apiUser";
@@ -7,12 +8,13 @@ import { useDebounce } from "../hooks/useDebounce";
 import { useParams } from "react-router";
 import { addMember } from "../services/apiGroupMembers";
 import { useNavigate } from "react-router";
+import { Key } from "lucide-react";
 
 function SearchPop({ onClick }) {
   const {id} = useParams();
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query, 500);
-console.log(id);
+// console.log(id);
 
   const { data: users = [] } = useQuery({
     queryKey: ["search_users", debouncedQuery],
@@ -22,7 +24,7 @@ console.log(id);
   // console.log(users);
   const navigate = useNavigate();
   async function addMemberToGroup(group_id, member_id) {
-      console.log(group_id, member_id);
+      // console.log(group_id, member_id);
       await addMember(group_id, member_id);
       navigate(`/group_details/${group_id}`);
   }
@@ -80,14 +82,11 @@ console.log(id);
                   </div>
                 </div>
                 <button onClick={() => addMemberToGroup(id, user.id)} className="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
-                  <span className="text-[18px] font-bold">
-                    <IoMdAdd />
-                  </span>
+                  <IoMdAdd />
                 </button>
               </div>
             ))}
-
-            </div>
+          </div>
           </div>
           <div className="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800">
             <button
