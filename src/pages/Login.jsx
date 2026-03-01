@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { FaArrowRight, FaLock } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa";
-import { Link, useNavigate, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
 import { useForm } from "react-hook-form";
 import { login, loginGoogle } from "../services/apiAuth";
@@ -37,8 +37,6 @@ function Login() {
   }
 
   async function handleGoogleLogin(token) {
-    console.log(token);
-
     await loginGoogle(token);
     naviagte("/groups");
   }

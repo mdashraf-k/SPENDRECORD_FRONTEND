@@ -18,3 +18,13 @@ export async function createGroup({ name, description }) {
 
   return res;
 }
+
+
+export async function delete_group(group_id) {
+  const res = await API.delete(`/groups/delete/${group_id}`);
+
+  if (res.status != 200) {
+    throw new Error("Failed to create groups");
+  }
+  // console.log(res);
+}

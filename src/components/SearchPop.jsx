@@ -7,7 +7,7 @@ import { seachUser } from "../services/apiUser";
 import { useDebounce } from "../hooks/useDebounce";
 import { useParams } from "react-router";
 import { addMember } from "../services/apiGroupMembers";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { Key } from "lucide-react";
 
 function SearchPop({ onClick }) {
@@ -26,7 +26,7 @@ function SearchPop({ onClick }) {
   async function addMemberToGroup(group_id, member_id) {
       // console.log(group_id, member_id);
       await addMember(group_id, member_id);
-      navigate(`/group_details/${group_id}`);
+      navigate(`/group_expenses/${group_id}`);
   }
   return (
     <>

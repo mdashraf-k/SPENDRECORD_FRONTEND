@@ -7,17 +7,19 @@ import MemberCard from "../components/MemberCard";
 import { useQuery } from "@tanstack/react-query";
 import { getAllMembers } from "../services/apiGroupMembers";
 import { formatDateTime } from "../utils/formatTimeDate";
-import { getGroups } from "../services/apiGroups";
+import { getGroups, delete_group } from "../services/apiGroups";
 import SearchPop from "../components/SearchPop";
 import { useState } from "react";
-import { Key } from "lucide-react";
 import Loading from "../components/Loading";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 function MembersOfGroups() {
+  const [isOptions, setIsOptions] = useState(false);
   const [searchPop, setSearchPop] = useState(false);
   // this is a group id
   const { id } = useParams();
-
+  const navigate = useNavigate();
   const { data: groups } = useQuery({
     queryKey: ["groups"],
     queryFn: getGroups,
@@ -39,13 +41,18 @@ function MembersOfGroups() {
   function handleSearchPop() {
     setSearchPop(!searchPop);
   }
+
+  async function deleteGroup(group_id) {
+    await delete_group(group_id);
+    navigate("/groups");
+  }
   if (isLoading) return <Loading />;
   if (isError) console.log(error);
 
   return (
     <div className="fixed inset-0 z-40 flex flex-col bg-slate-50 dark:bg-slate-950 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto">
       {/* Header */}
-      <header className="px-4 sm:px-6 md:px-8 pt-4 pb-2.5 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 shrink-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md">
+      <header className="px-4 sm:px-6 md:px-8 pt-4 pb-2.5 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 shrink-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-m relatived">
         <Link
           to={`/group_expenses/${id}`}
           className="p-2 -ml-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
@@ -53,7 +60,19 @@ function MembersOfGroups() {
           <FaArrowLeft className="text-lg sm:text-xl md:text-2xl" />
         </Link>
         <h1 className="text-base sm:text-lg font-semibold">Group Info</h1>
-        <div className="w-10"></div>
+        <div className="relative w-fit ">
+          <BsThreeDotsVertical
+            onClick={() => setIsOptions(!isOptions)}
+            size={20}
+          />
+          {isOptions && (
+            <div className="absolute flex right-0 top-full mt-2 min-w-40 h-15 dark:bg-slate-700 bg-orange-400 rounded-md shadow-xl z-50">
+              <button onClick={() => deleteGroup(id)} className="text-center p-1 m-auto rounded-sm w-35 bg-red-600  hover:bg-orange-500">
+                <span className="text-white font-bold">Delete Group</span>
+              </button>
+            </div>
+          )}
+        </div>
       </header>
 
       {/* Scrollable content */}
