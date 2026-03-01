@@ -17,7 +17,7 @@ import PublicLayout from "./layouts/PublicLayout";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Features from "./pages/Features";
 import Security from "./pages/Security";
-import About from "./pages/About"
+import About from "./pages/About";
 import Blog from "./pages/Blog";
 import HelpCenter from "./pages/HelpCenter";
 import Contact from "./pages/Contact";
@@ -25,6 +25,8 @@ import { CommandIcon } from "lucide-react";
 import Community from "./pages/Community";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import GuestGuard from "../guards/GuestGuard";
+import AuthRedirect from "./context/AuthRedirect";
 
 const queryClient = new QueryClient();
 
@@ -40,21 +42,34 @@ function App() {
     >
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <Routes>
-            {/* These are public routes */}
+          {/* These are public routes */}
+          <Routes
+            element={
+              <GuestGuard>
+                <Outlet />
+              </GuestGuard>
+            }
+          >
             <Route element={<PublicLayout />}>
-              <Route path="/" element={<Landing />} />
+              <Route
+                path="/"
+                element={
+                  <AuthRedirect>
+                    <Landing />
+                  </AuthRedirect>
+                }
+              />
               <Route path="signup" element={<Register />} />
               <Route path="login" element={<Login />} />
-              <Route path="features" element={<Features/>} />
-              <Route path="security" element={<Security/>}/>
-              <Route path="about" element={<About/>}/>
-              <Route path="blog" element={<Blog/>}/>
-              <Route path="help_center" element={<HelpCenter/>}/>
-              <Route path="contact_us" element={<Contact/>}/>
-              <Route path="community" element={<Community/>}/>
-              <Route path="privacy_policy" element={<PrivacyPolicy/>}/>
-              <Route path="terms_of_services" element={<Terms/>}/>
+              <Route path="features" element={<Features />} />
+              <Route path="security" element={<Security />} />
+              <Route path="about" element={<About />} />
+              <Route path="blog" element={<Blog />} />
+              <Route path="help_center" element={<HelpCenter />} />
+              <Route path="contact_us" element={<Contact />} />
+              <Route path="community" element={<Community />} />
+              <Route path="privacy_policy" element={<PrivacyPolicy />} />
+              <Route path="terms_of_services" element={<Terms />} />
             </Route>
 
             {/* These are Private Routes */}

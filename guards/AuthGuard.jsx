@@ -1,10 +1,11 @@
 import { Navigate } from "react-router-dom";
 import { useCurrentUser } from "../src/hooks/useCurrentUser";
+import Loading from "../src/components/Loading";
 
 function AuthGuard({children}) {
     const {data: user, isLoading} = useCurrentUser();
 
-    if (isLoading) return <p>Loading</p>;
+    if (isLoading) return <Loading/>;
     if(!user) return <Navigate to="/login" replace/>;
 
     return children
