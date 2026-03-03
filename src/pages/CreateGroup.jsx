@@ -46,7 +46,7 @@ function CreateGroup() {
                 alt="Group avatar"
                 className="w-full h-full rounded-full object-cover opacity-50"
                 data-alt="Abstract vibrant green and white geometric pattern"
-                src="/public/people.png"
+                src="/people.png"
               />
             </div>
           </div>
