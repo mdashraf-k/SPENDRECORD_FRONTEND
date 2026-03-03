@@ -5,17 +5,18 @@ import { Link } from "react-router";
 import { useParams } from "react-router";
 import MemberCard from "../components/MemberCard";
 import { useQuery } from "@tanstack/react-query";
-import { getAllMembers } from "../services/apiGroupMembers";
+import { getAllMembers, exit_from_group } from "../services/apiGroupMembers";
 import { formatDateTime } from "../utils/formatTimeDate";
-import { getGroups, delete_group } from "../services/apiGroups";
+import { getGroups } from "../services/apiGroups";
 import SearchPop from "../components/SearchPop";
 import { useState } from "react";
 import Loading from "../components/Loading";
-import { BsThreeDotsVertical } from "react-icons/bs";
+// import { BsThreeDotsVertical } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { useCurrentUser } from "../hooks/useCurrentUser";
 
 function MembersOfGroups() {
-  const [isOptions, setIsOptions] = useState(false);
+  // const [isOptions, setIsOptions] = useState(false);
   const [searchPop, setSearchPop] = useState(false);
   // this is a group id
   const { id } = useParams();
@@ -36,14 +37,16 @@ function MembersOfGroups() {
   });
   // console.log(group_members);
 
+  const { data: currentUser } = useCurrentUser();
+
   const group = groups?.find((grp) => grp.id === Number(id));
   // console.log(group);
   function handleSearchPop() {
     setSearchPop(!searchPop);
   }
 
-  async function deleteGroup(group_id) {
-    await delete_group(group_id);
+  async function handleExitFromGroup(group_id, user_id) {
+    await exit_from_group(group_id, user_id);
     navigate("/groups");
   }
   if (isLoading) return <Loading />;
@@ -52,15 +55,22 @@ function MembersOfGroups() {
   return (
     <div className="fixed inset-0 z-40 flex flex-col bg-slate-50 dark:bg-slate-950 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto">
       {/* Header */}
-      <header className="px-4 sm:px-6 md:px-8 pt-4 pb-2.5 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 shrink-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-m relatived">
+      <header className="relative px-4 sm:px-6 md:px-8 pt-4 pb-2.5 flex items-center border-b border-slate-200 dark:border-slate-800 shrink-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-m">
+        {/* Back Arrow */}
         <Link
           to={`/group_expenses/${id}`}
-          className="p-2 -ml-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          className="absolute left-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
         >
           <FaArrowLeft className="text-lg sm:text-xl md:text-2xl" />
         </Link>
-        <h1 className="text-base sm:text-lg font-semibold">Group Info</h1>
-        <div className="relative w-fit ">
+
+        {/* Center Title */}
+        <h1 className="mx-auto text-base sm:text-lg font-semibold">
+          Group Info
+        </h1>
+
+        {/* This is Options icon */}
+        {/* <div className="relative w-fit ">
           <BsThreeDotsVertical
             onClick={() => setIsOptions(!isOptions)}
             size={20}
@@ -72,7 +82,7 @@ function MembersOfGroups() {
               </button>
             </div>
           )}
-        </div>
+        </div> */}
       </header>
 
       {/* Scrollable content */}
@@ -141,7 +151,10 @@ function MembersOfGroups() {
               />
             ))}
 
-            <button className="w-full mt-8 sm:mt-10 py-3 sm:py-4 flex items-center justify-center gap-2 text-red-500 text-sm sm:text-base font-semibold hover:bg-red-50 dark:hover:bg-red-500/10 rounded-2xl transition-colors">
+            <button
+              onClick={() => handleExitFromGroup(id, currentUser.id)}
+              className="w-full mt-8 sm:mt-10 py-3 sm:py-4 flex items-center justify-center gap-2 text-red-500 text-sm sm:text-base font-semibold hover:bg-red-50 dark:hover:bg-red-500/10 rounded-2xl transition-colors"
+            >
               <span>Leave Group</span>
             </button>
           </div>
